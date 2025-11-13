@@ -1,0 +1,154 @@
+* Reset and Global Styles */ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Dark Theme and Centering */
+body {
+  background-color: #8d8f91;
+  /* Dark background */
+  color: #f8f7f7;
+  /* Light text */
+  font-family: Arial, sans-serif;
+  /* Use a common font */
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Align to the top of the viewport */
+}
+
+
+/* Main App Container for Centering and Max Width */
+.App-Container {
+  width: 100%;
+  max-width: 400%;
+  /* Constrain the width for a centered look */
+  padding: 8rem;
+  margin-top: 50px;
+  /* Give some space from the top */
+}
+
+
+/* Heading Style */
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #131111;
+}
+
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* No specific background or padding needed for the form container itself,
+     as inputs are styled to match the dark theme */
+  margin-bottom: 2rem;
+}
+
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #3c3c3c;
+  /* Dark border */
+  border-radius: 4px;
+  background-color: #dfd5d5;
+  /* Input background slightly lighter than body */
+  color: #f0f0f0;
+  font-size: 14px;
+  resize: none;
+  /* Disable resizing the textarea for a cleaner look */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a0a0a0;
+  /* Light gray placeholder text */
+}
+
+
+/* Button Styling (for "Add Task") */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #555555;
+  /* Neutral button color */
+  color: #f0f0f0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+
+button:hover {
+  background-color: #d8d3d3;
+}
+
+
+/* Task List and Item Styling (the card look) */
+ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+li {
+  background: #313131;
+  /* The card background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(134, 130, 130, 0.5);
+  /* Stronger shadow for depth */
+  border: 3px solid #3d3c3c;
+  /* Light gray border around the card */
+}
+
+
+li div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+
+li h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+li p {
+  margin: 0;
+  color: #bdc3c5;
+}
+
+
+/* Specific button grouping for Edit/Delete */
+li>div>div button {
+  margin: 0;
+  /* Remove extra margin from button style above */
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  background-color: #444444;
+  /* Slightly different button shade for actions */
+}
+
+
+li>div>div button:hover {
+  background-color: #555555;
+}
