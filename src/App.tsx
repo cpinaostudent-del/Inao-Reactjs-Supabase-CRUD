@@ -163,7 +163,9 @@ export default function App() {
   // --- UI ---
   return (
     <div className="App-Container">
-      <h2>Task Image & Video</h2>
+      <h2 className="text-3xl font-bold underline">
+        Task Image & Video
+      </h2>
 
       <form onSubmit={createTask}>
         <input
