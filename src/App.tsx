@@ -12,6 +12,7 @@ interface Task {
 }
 
 export default function App() {
+
   const tablename = import.meta.env.VITE_TABLE_NAME
 
   const [tasks, setTasks] = useState<Task[]>([]);
