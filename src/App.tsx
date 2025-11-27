@@ -12,6 +12,8 @@ interface Task {
 }
 
 export default function App() {
+  const tablename = import.meta.env.VITE_TABLE_NAME
+
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTask, setNewTask] = useState({ title: "", description: "" });
   const [newDescription, setNewDescription] = useState("");
@@ -84,7 +86,7 @@ export default function App() {
     if (taskImage) imageUrl = await uploadFile(taskImage, "images");
     if (taskVideo) videoUrl = await uploadFile(taskVideo, "videos");
 
-    const { error } = await supabase.from("tasks").insert([
+    const { error } = await supabase.from(tablename).insert([
       {
         title: newTask.title,
         description: newTask.description,
@@ -107,7 +109,7 @@ export default function App() {
   // --- READ TASKS ---
   const fetchTasks = async () => {
     const { data, error } = await supabase
-      .from("tasks")
+      .from(tablename)
       .select("*")
       .order("id", { ascending: false });
 
@@ -118,7 +120,7 @@ export default function App() {
   // --- UPDATE TASK ---
   const updateTask = async (id: number) => {
     const { error } = await supabase
-      .from("tasks")
+      .from(tablename)
       .update({ description: newDescription })
       .eq("id", id);
 
@@ -134,7 +136,7 @@ export default function App() {
   const deleteTask = async (id: number) => {
     if (!window.confirm("Delete this task?")) return;
 
-    const { error } = await supabase.from("tasks").delete().eq("id", id);
+    const { error } = await supabase.from(tablename).delete().eq("id", id);
     if (error) console.error("Delete error:", error.message);
     else {
       console.log("✅ Task deleted");
